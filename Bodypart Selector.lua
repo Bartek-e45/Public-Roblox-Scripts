@@ -1,3 +1,5 @@
+player = game.Players.LocalPlayer
+char = player.Character or player.CharacterAdded:Wait()
 for i, bodypart in char:GetChildren() do
 	local sel_box = Instance.new("SelectionBox")
 	sel_box.Color3 = Color3.fromRGB(25, 255, 33)
@@ -20,7 +22,7 @@ mouse.Move:Connect(function()
 		local raycastHit = raycastResult.Instance
 		if raycastHit then
 			local raycastModel = raycastHit:FindFirstAncestorOfClass("Model")
-			if raycastModel.Name == player.Name and raycastHit.Name ~= "Handle" and "HumanoidRootPart" then
+			if raycastModel.Name == player.Name and raycastResult.Instance.Name ~= "Handle" and raycastResult.Instance.Name ~= "HumanoidRootPart" then
 
 				for i, bodypart in char:GetChildren() do
 					if bodypart:FindFirstChild("SelectionBox") then
@@ -44,7 +46,7 @@ mouse.Button1Up:Connect(function()
 		local raycastHit = raycastResult.Instance
 		if raycastHit then
 			local raycastModel = raycastHit:FindFirstAncestorOfClass("Model")
-			if raycastModel.Name == player.Name and raycastHit.Name ~= "Handle" and "HumanoidRootPart" then
+			if raycastModel.Name == player.Name and raycastResult.Instance.Name ~= "Handle" and raycastResult.Instance.Name ~= "HumanoidRootPart" then
 				print(raycastResult.Instance)
 			end
 		end
